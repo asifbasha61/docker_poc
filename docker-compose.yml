@@ -1,0 +1,33 @@
+version: '3.88888888'
+services:
+  angular_app:
+    image: angular_app:1
+    ports:
+      - 4200:80
+    networks:
+      - cqube_net
+  postgres_app:
+    image: postgres_app:1
+    environment:
+      - POSTGRES_DB=cqube
+      - POSTGRES_USER=cqube_user
+      - POSTGRES_PASSWORD=Tibil@123
+    networks:
+      - cqube_net
+  node_app:
+    image: node_app:1
+    ports:
+      - 3006:3006
+    networks:
+      - cqube_net
+  nifi_app:
+    image: apache/nifi:latest
+    ports:
+      - 8096:8096
+    environment:
+      - NIFI_WEB_HTTP_HOST=0.0.0.0
+      - NIFI_WEB_HTTP_PORT=8096
+    networks:
+      - cqube_net
+networks:
+  cqube_net:

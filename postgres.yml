@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: docker build postgres
+      docker_image:
+        name: postgres_app
+        tag: '1'
+        build:
+          path: postgres/
+        source: build

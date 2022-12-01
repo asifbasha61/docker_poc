@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: docker compose
+      become_user: ubuntu 
+      community.docker.docker_compose:
+        project_src: . 

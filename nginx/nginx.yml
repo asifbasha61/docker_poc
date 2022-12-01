@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: docker build mynginx
+      docker_image:
+        name: mynginx
+        tag: '20'
+        build:
+          path: .
+        source: build

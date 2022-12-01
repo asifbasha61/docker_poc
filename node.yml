@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: docker build node app
+      docker_image:
+        name: node_app
+        tag: '1'
+        build:
+          path: node-test-app/
+        source: build

@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: docker build angular
+      docker_image:
+        name: angular_app
+        tag: '1'
+        build:
+          path: test-app/
+        source: build
